@@ -1,0 +1,9 @@
+.profile__info {
+  display: grid;
+  grid-template-areas:
+    "name button"
+    "text text";
+  column-gap: 18px;
+  align-items: center;
+  row-gap: 16px;
+}
