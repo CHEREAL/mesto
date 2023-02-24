@@ -1,18 +1,15 @@
 .footer {
-  margin: 0 200px 60px 200px;
+  margin: 0 auto 60px auto;
   max-width: 880px;
+  padding: 0 19px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-@media screen and (max-width: 1024px) {
-  .footer {
-    margin: 0px 100px 60px 100px;
-  }
-}
+
 @media screen and (max-width: 768px) {
   .footer {
     min-height: 56px;
-    margin: 48px 19px 36px 19px;
+    margin-bottom: 36px;
   }
 }
