@@ -3,10 +3,14 @@
   height: 33px;
   cursor: pointer;
 }
+@media screen and (max-width: 1024px) {
+  .header__logo {
+    padding: 0px 0px 0px 19px;
+  }
+}
 
 @media screen and (max-width: 768px) {
   .header__logo {
-    padding: 0px 0px 0px 19px;
     width: 103px;
     height: 24px;
   }
