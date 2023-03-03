@@ -1,15 +1,11 @@
 .footer {
-  margin: 0 auto 60px auto;
+  margin: 0 auto 60px;
   max-width: 880px;
-  padding: 0 19px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .footer {
-    min-height: 56px;
-    margin-bottom: 36px;
+    margin: 0 auto 36px;
+    width: calc(100% - 19px);
   }
 }

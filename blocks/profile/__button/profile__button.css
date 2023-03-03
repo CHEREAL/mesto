@@ -6,7 +6,7 @@
   border: 1px solid #fff;
   height: 24px;
   margin: 0;
-  min-width: 24px;
+  width: 24px;
   padding: 0;
   transition: 0.2s;
   grid-area: button;
@@ -14,4 +14,10 @@
 .profile__button:hover {
   cursor: pointer;
   opacity: 0.6;
+}
+@media screen and (max-width: 768px) {
+  .profile__button {
+    width: 18px;
+    height: 18px;
+  }
 }
