@@ -4,7 +4,7 @@
   min-height: 74px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   border-bottom: 1px solid rgba(84, 84, 84, 0.7);
 }
 
@@ -12,5 +12,10 @@
   .header {
     min-height: 56px;
     margin-bottom: 74px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .header {
+    margin: 28px auto 42px auto;
   }
 }

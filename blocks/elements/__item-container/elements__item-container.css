@@ -5,3 +5,8 @@
   padding: 0 21px;
   background-color: #fff;
 }
+@media screen and (max-width: 320px) {
+  .elements__item-container {
+    height: 79px;
+  }
+}
