@@ -5,27 +5,28 @@ const nameInput = document.querySelector('#name');
 const jobInput = document.querySelector('#text');
 const formElement = document.querySelector('.popup__form');
 
-const toggleOpenPopup = () => {
+// Открытие попапа
+ toggleOpenPopup = () => {
     popup.classList.add('popup_opened');
+    nameInput.value = 'Жак-Ив Кусто';
+    jobInput.value = 'Исследователь океана';
 }
-const toggleClosePopup = () => {
+// Закрытие попапа
+ toggleClosePopup = () => {
   popup.classList.remove('popup_opened');
 }
-const handleAboutButtonClick = () => {
-  toggleOpenPopup();
-};
-const handleCloseButtonClick = () => {
-  toggleClosePopup();
-};
-const handleFormSubmit  = (evt) => {
+
+// функция формы
+handleFormSubmit  = (evt) => {
   evt.preventDefault(); 
 
   nameInput.textContent = nameInput.value;
   jobInput.textContent = jobInput.value;
+  toggleClosePopup();
 }
-
-profileButton.addEventListener('click', handleAboutButtonClick);
-closeButton.addEventListener('click', handleCloseButtonClick);
+// слушатели
+profileButton.addEventListener('click', toggleOpenPopup);
+closeButton.addEventListener('click', toggleClosePopup);
 formElement.addEventListener('submit', handleFormSubmit); 
 
 
