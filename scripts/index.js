@@ -4,12 +4,14 @@ const closeButton = document.querySelector('.popup__button-close');
 const nameInput = document.querySelector('#name');
 const jobInput = document.querySelector('#text');
 const formElement = document.querySelector('.popup__form');
+const profileName = document.querySelector('.profile__name');
+const profileText = document.querySelector('.profile__text');
 
 // Открытие попапа
  toggleOpenPopup = () => {
     popup.classList.add('popup_opened');
-    nameInput.value = 'Жак-Ив Кусто';
-    jobInput.value = 'Исследователь океана';
+    nameInput.value = profileName.textContent;
+    jobInput.value = profileText.textContent;
 }
 // Закрытие попапа
  toggleClosePopup = () => {
@@ -20,8 +22,8 @@ const formElement = document.querySelector('.popup__form');
 handleFormSubmit  = (evt) => {
   evt.preventDefault(); 
 
-  nameInput.textContent = nameInput.value;
-  jobInput.textContent = jobInput.value;
+  profileName.textContent = nameInput.value;
+  profileText.textContent = jobInput.value;
   toggleClosePopup();
 }
 // слушатели

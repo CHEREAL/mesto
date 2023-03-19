@@ -11,13 +11,7 @@
   .profile__info {
     grid-template-columns: 1fr 18px;
     column-gap: 10px;
-    row-gap: 14px;
+    row-gap: 4px;
     margin-left: 15px;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .profile__info {
-    margin-left: 26px;
   }
 }
