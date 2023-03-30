@@ -1,4 +1,4 @@
-.elements__item-button {
+.elements__item-like {
   background-color: transparent;
   background-image: url(../../../images/like.svg);
   background-position: 50%;
@@ -10,7 +10,7 @@
   transition: 0.2s;
   cursor: pointer;
 }
-.elements__item-button:hover {
+.elements__item-like:hover {
   cursor: pointer;
   opacity: 0.6;
 }
