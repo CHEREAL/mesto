@@ -8,7 +8,7 @@ const formElement = document.querySelector('.popup__form');
 const profileName = document.querySelector('.profile__name');
 const profileText = document.querySelector('.profile__text');
 const profileButtonAdd = document.querySelector('.profile__button-add');
-const popupCard = document.querySelector('.popup_type_card');
+const popupCard = document.querySelector('.popup_type-card');
 const cardCloseButton = popupCard.querySelector('.popup__button-close');
 const popupImage = document.querySelector('.popup_type_image');
 const imageCloseButton = popupImage.querySelector('.popup__button-close');
@@ -20,7 +20,7 @@ const zoomFigCaption = popupImage.querySelector('.popup__figure-caption');
 const itemTemplate = document.querySelector(".item__template").content;
 const list = document.querySelector(".elements__list");
 const formCard = popupCard.querySelector('.popup__form-card');
-const formButton = popupCard.querySelector(".popup__button-submit_type_card");
+const formButton = popupCard.querySelector(".popup__button-submit_type-card");
 const formInput = document.querySelector("#cardName");
 const formInputSrc = document.querySelector('#cardSrc');
 // template cards
