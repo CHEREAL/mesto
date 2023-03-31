@@ -94,11 +94,19 @@ list.addEventListener('click', function(e) {
   if (e.target.classList.contains('elements__item-like')) {
     toggleLike(e.target); 
   }
-  // zoom
-  // if(e.target.classList.contains('elements__item-image')) {
-  //   zoomImage(e.target);
-  // }
+  //zoom 
+  if(e.target.classList.contains('elements__item-image')) {
+    zoomImage(e.target);
+  }
+
 });
+// функция zoom
+function zoomImage(e) {
+  popupImage.classList.add('popup__opened');
+  zoomSrc.src = e.src;
+  zoomSrc.alt = e.alt;
+  zoomFigCaption.textContent = e.alt;
+}
 // функция like
 function toggleLike(el) {
   el.classList.toggle('elements__item-like_active');
@@ -109,23 +117,7 @@ function cardDelete(btn) {
   list.removeChild(card);
 }
 
-// функция zoom
-// function zoomImage(img) {
-//   popupImage.classList.add('popup__opened');
-//   zoomSrc.src = img.target.src;
-//   zoomSrc.alt = img.target.name;
-//   zoomFigCaption.textContent = img.target.name;
-  
-// }
 
-const images = document.querySelectorAll('.elements__item-image');
-
-images.forEach((el) => {
-  el.addEventListener('click', (e) => {
-popupImage.classList.add('popup__opened');
-zoomSrc.src = el.src;
-})
-})
 
 // Открытие popup-profile и внесение данных
  toggleOpenPopup = () => {
