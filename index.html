@@ -52,7 +52,11 @@
           type="button"
           title="Закрыть"
         ></button>
-        <form class="popup__form" name="formProfile" action="#">
+        <form
+          class="popup__form popup__form-profile"
+          name="formProfile"
+          action="#"
+        >
           <h3 class="popup__title">Редактировать профиль</h3>
           <label class="popup__label">
             <input
@@ -66,9 +70,9 @@
           </label>
           <label class="popup__label">
             <input
-              class="popup__input"
-              id="text"
-              name="text"
+              class="popup__input popup__input_type_job"
+              id="job"
+              name="subtitle"
               minlenght="5"
               maxlength="60"
               required
@@ -122,13 +126,13 @@
     <section class="popup popup_type_image">
       <div class="popup__container-image">
         <button
-          class="popup__button-close"
+          class="popup__button-close popup__button-close-image"
           type="button"
           title="Закрыть"
         ></button>
         <figure class="popup__figure">
-          <img class="popup__image" src="" alt="" />
-          <figcaption class="popup__figure-cuption"></figcaption>
+          <img class="popup__zoom-image" src="" alt="" />
+          <figcaption class="popup__figure-caption"></figcaption>
         </figure>
       </div>
     </section>

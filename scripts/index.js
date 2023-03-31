@@ -1,19 +1,29 @@
+//переменные profile
 const profileButton = document.querySelector('.profile__button');
-const popup = document.querySelector('.popup_type_profile');
-const closeButton = popup.querySelector('.popup__button-close');
-const nameInput = document.querySelector('#name');
-const jobInput = document.querySelector('#text');
+const popupProfile = document.querySelector('.popup_type_profile');
+const closeButton = popupProfile.querySelector('.popup__button-close');
+const nameProfile = document.querySelector('#name');
+const jobProfile = document.querySelector('#job');
 const formElement = document.querySelector('.popup__form');
 const profileName = document.querySelector('.profile__name');
 const profileText = document.querySelector('.profile__text');
 const profileButtonAdd = document.querySelector('.profile__button-add');
 const popupCard = document.querySelector('.popup_type_card');
 const cardCloseButton = popupCard.querySelector('.popup__button-close');
-const likeButton = document.querySelector('.elements__item-button');
+const popupImage = document.querySelector('.popup_type_image');
+const imageCloseButton = popupImage.querySelector('.popup__button-close');
+const zoomSrc = popupImage.querySelector('.popup__zoom-image');
+const zoomFigCaption = popupImage.querySelector('.popup__figure-caption');
 
 
-
-
+// переменные cards
+const itemTemplate = document.querySelector(".item__template").content;
+const list = document.querySelector(".elements__list");
+const formCard = popupCard.querySelector('.popup__form-card');
+const formButton = popupCard.querySelector(".popup__button-submit_type_card");
+const formInput = document.querySelector("#cardName");
+const formInputSrc = document.querySelector('#cardSrc');
+// template cards
 const initialCards = [
   {
     name: 'Архыз',
@@ -40,19 +50,9 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ]; 
-const itemTemplate = document.querySelector(".item__template").content;
-const list = document.querySelector(".elements__list");
-const formCard = popupCard.querySelector('.popup__form-card');
-const formButton = popupCard.querySelector(".popup__button-submit_type_card");
-const formInput = document.querySelector("#cardName");
-const formInputSrc = document.querySelector('#cardSrc');
-
-
-
-// функция вставит карточку
-
+// перебор массива
 initialCards.forEach(renderItem)
-
+// функция вставить карточку
 function renderItem (item) {
   list.insertAdjacentHTML('beforeend', `<li class="elements__item">
   <button
@@ -72,7 +72,6 @@ function renderItem (item) {
   </div>
   </li>`)
 }
-
 handleFormCard  = (evt) => {
   evt.preventDefault(); 
 const newCard = {
@@ -81,67 +80,86 @@ const newCard = {
 }
 renderItem(newCard);
   toggleClosePopupCard();
-
-
 }
-
-
-
 formCard.addEventListener('submit', handleFormCard);
 
-function toggleLike(el) {
-  el.classList.toggle('elements__item-like_active')
-}
 
-
+//функции like, zoom, delete
 list.addEventListener('click', function(e) { 
-  if (e.target.className === 'elements__trash-button') cardDelete(e.target);
-  if (e.target.classList.contains('elements__item-like')) {
-    toggleLike(e.target) 
+  // delete
+  if (e.target.className === 'elements__trash-button') {
+    cardDelete(e.target);
   }
+  // like
+  if (e.target.classList.contains('elements__item-like')) {
+    toggleLike(e.target); 
+  }
+  // zoom
+  // if(e.target.classList.contains('elements__item-image')) {
+  //   zoomImage(e.target);
+  // }
 });
-
-
+// функция like
+function toggleLike(el) {
+  el.classList.toggle('elements__item-like_active');
+}
+// функция delete
 function cardDelete(btn) {
-  let card = btn.closest('.elements__item');
+  const card = btn.closest('.elements__item');
   list.removeChild(card);
 }
 
+// функция zoom
+// function zoomImage(img) {
+//   popupImage.classList.add('popup__opened');
+//   zoomSrc.src = img.target.src;
+//   zoomSrc.alt = img.target.name;
+//   zoomFigCaption.textContent = img.target.name;
+  
+// }
 
+const images = document.querySelectorAll('.elements__item-image');
 
+images.forEach((el) => {
+  el.addEventListener('click', (e) => {
+popupImage.classList.add('popup__opened');
+zoomSrc.src = el.src;
+})
+})
 
-
-// Открытие попапа
+// Открытие popup-profile и внесение данных
  toggleOpenPopup = () => {
-    popup.classList.add('popup_opened');
-    nameInput.value = profileName.textContent;
-    jobInput.value = profileText.textContent;
+    popupProfile.classList.add('popup__opened');
+    nameProfile.value = profileName.textContent;
+    jobProfile.value = profileText.textContent;
 }
-// Закрытие попапа card
+// Закрытие popup card
  toggleClosePopupCard = () => {
-  popupCard.classList.remove('popup_opened');
+  popupCard.classList.remove('popup__opened');
 }
-// закртыие popup 
+toggleClosePopupImage = () => {
+  popupImage.classList.remove('popup__opened');
+}
+// закртыие popup profile
 toggleClosePopup = () => {
-  popup.classList.remove('popup_opened');
+  popupProfile.classList.remove('popup__opened');
 }
+// функция добавления popup-card
+buttonOpenCard = () => {
+  popupCard.classList.add('popup__opened');
+}
+// функция закрытия popup-card 
+buttonCloseCard = () => {
+  popupCard.classList.remove('popup__opened');
+}
+
 
 // функция формы
 handleFormSubmit  = (evt) => {
   evt.preventDefault(); 
-
-  profileName.textContent = nameInput.value;
-  profileText.textContent = jobInput.value;
+  profileName.textContent = nameProfile.value;
+  profileText.textContent = jobProfile.value;
   toggleClosePopup();
-}
-
-// функция добавления popup-card
-buttonOpenCard = () => {
-  popupCard.classList.add('popup_opened');
-}
-// функция закрытия popup-card 
-buttonCloseCard = () => {
-  popupCard.classList.remove('popup_opened');
 }
 
 
@@ -151,5 +169,5 @@ closeButton.addEventListener('click', toggleClosePopup);
 formElement.addEventListener('submit', handleFormSubmit); 
 profileButtonAdd.addEventListener('click', buttonOpenCard);
 cardCloseButton.addEventListener('click', buttonCloseCard);
-
+imageCloseButton.addEventListener('click', toggleClosePopupImage); 
 
